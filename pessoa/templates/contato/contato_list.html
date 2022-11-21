@@ -1,0 +1,183 @@
+{% extends 'main/base.html' %}
+{% block conteudo %}
+
+{%if contato.nome > "" %}
+{% else %} 
+<a href="{% url 'contato.novo' pk_pessoa %}">Novo</a>
+{% endif %}
+
+
+<style>
+    .container{
+        margin-left: 0;
+        padding-bottom: 70px;
+        
+    }
+    tr{
+        padding-left: 50px;
+        padding-right: 50px;
+        text-align: center;
+        border: 2px solid;
+        height: 100%;
+        width: 100px;
+    }
+    th{
+        padding-left: 50px;
+        padding-right: 50px;
+        text-align: center;
+        border: 2px solid;
+        height: 100%;
+        width: 100px;
+    }
+    td{
+        border: 2px solid;
+        width: 100px;
+    }
+    table{
+        table-layout: fixed;
+    }
+    
+
+</style>
+<table id='tabela'>
+    <thead>
+        {% for contato in contatos %}
+        <tr>
+            <th>Nome</th>
+            <td>{{ contato.nome }}</td>
+        </tr>
+        <tr>
+            <th>E-mail</th>
+            <td>{{ contato.email }}</td>
+        </tr><tr>
+            <th>Filiação</th>
+            <td>{{ contato.filiacao }}</td>
+        </tr><tr>
+            <th>estado civil</th>
+            <td>{{ contato.estado_civil }}</td>
+        </tr><tr>
+            <th>Registro Geral</th> 
+            <td>{{ contato.rg }}</td>
+            <th>CPF</th>
+            <td>{{ contato.cpf }}</td>
+            <th>Telefone</th>
+            <td>{{ contato.telefone }}</td>
+        </tr><tr>
+            <th>Endereço</th>
+            <td>{{ contato.endereco }}</td>
+        </tr><tr>
+            <th>Número de filhos menores de 15 anos</th>
+            <td>{{ contato.numero_de_filhos_menores_de_15 }}</td>
+            <th>Idades</th>
+            <td>{{ contato.idade_1 }}</td>
+        </tr><tr>
+            <th>Quantos familiares trabalham?</th>
+            <td>{{ contato.quantos_familiares_trabalham }}</td>
+            <th>Renda Mensal</th>
+            <td>{{ contato.renda_mensal }}</td>
+        </tr><tr>
+            <th>Qual atividade você desenvolve em seu dia a dia</th>
+            <td>{{ contato.atividade_diaadia }}</td>
+        </tr><tr>
+            <th>Quantas pessoas dependem da Renda familiar</th>
+            <td>{{ contato.dependem_renda }}</td>
+            <th>Total Renda Familiar</th>
+            <td>{{ contato.total_renda }}</td>
+        </tr><tr> 
+            <th>Você ou algum membro da familia são beneficiarios do bde programas sociais?</th>
+            <td>
+                {% if contato.bolsa_familia %}
+                Sim
+                {% else %}
+                Não
+                {% endif %}
+            </td>
+            <th>Qual?</th>
+            <td>{{ contato.qual_bolsa }}</td>
+        </tr><tr>
+            <th>Você e sua familia residem em imovel proprio?</th>
+            <td>
+                {% if contato.imovel_proprio %}
+                Sim
+                {% else %}
+                Não
+                {% endif %}
+            </td>
+            <th>Aluguel?</th>
+            <td>
+                {% if contato.alugado %}
+                Sim
+                {% else %}
+                Não
+                {% endif %}
+            </td>
+            <th>valor do aluguel</th>
+            <td>{{ contato.valor_aluguel }}</td>
+        </tr><tr>
+            <th>Tem pessoas especiais em sua familia</th>
+            <td>
+                {% if contato.pessoas_especiais %}
+                Sim
+                {% else %}
+                Não
+                {% endif %}
+            </td>
+            <th>Quem está doente?</th>
+            <td>{{ contato.quem_doente }}</td>
+            <th>Idade</th>
+            <td>{%if contato.idade == null %}
+                Nada
+                {% endif %}
+            </td>
+
+            <th>Qual doença?</th>
+            <td>{{ contato.qual_doenca}}</td>
+        </tr><tr>
+            <th>certidao dos filhos trouxe na primeira</th>
+            <td>{% if contato.certidao_trouxe_na_primeira %}
+                Sim
+                {% else %}
+                Não
+                {% endif %}
+            </td>
+            <th>vai trazer</th>
+            <td>
+                {% if contato.certidao_vai_trazer %}
+                Sim
+                {% else %}
+                Não
+                {% endif %}
+            </td>
+            <th>trouxe na segunda</th>
+            <td>
+                {% if contato.certidao_trouxe_na_segunda %}
+                Sim
+                {% else %}
+                Não
+                {% endif %}
+            </td>
+        </tr><tr>
+            <th>observações</th>
+            <td>{{ contato.obs }}</td>
+        </tr><tr>
+            <th>data acolhida</th>
+            <td>{{ contato.data_acolhida|date:"d/m/y" }}</td>
+            <th>responsavel</th>
+            <td>{{ contato.responsavel }}</td>
+            <th>retornos</th>
+            <td>{{ contato.retornos}}</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>Ações</th>
+            <td>
+                <a href="{% url 'contato.editar' pk_pessoa contato.pk %}">Editar</a>
+                <a href="{% url 'contato.remover' pk_pessoa contato.pk %}">Remover</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock conteudo %}

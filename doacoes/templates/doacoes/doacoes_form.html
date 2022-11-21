@@ -1,0 +1,68 @@
+{% extends 'main/base.html' %}
+{% block conteudo %}
+{% comment %}<style>
+    * {
+        box-sizing: border-box;
+    }
+    
+    input[type=text], select, textarea, input {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+    }
+    
+    label {
+        padding: 12px 12px 12px 0;
+        display: inline-block;
+    }
+
+    input[type="checkbox"] {
+    background-color: #fff;
+    margin: 0;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+}
+    
+    input[type=submit] {
+        background-color: #04AA6D;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+    }
+    
+    input[type=submit]:hover {
+        background-color: #45a049;
+        transform: scale(1.05);
+    }
+    
+    form{
+        margin-left: 0px;
+    }
+    
+    .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+        padding-bottom: 80px;
+    }
+    </style> {% endcomment %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Salvar"></input>
+</form>
+<style>
+form {
+    margin-bottom: 50px;
+}
+</style>
+{% endblock conteudo %}

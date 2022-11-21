@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro Fora Da Caridade Não Há Salvação</title>
+    
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+    
+    {% block menu %}
+    <div class="bg-light">
+        Centro Fora Da Caridade Não Há Salvação
+    </div>
+    {% endblock %}
+    
+    {% block destaque %}
+    
+    
+    <div class="cabecalho">
+        <style>
+            .cabecalho{
+                background-color: blueviolet;
+            }
+            
+            a:link{
+                color: rgb(63, 94, 150);
+                text-decoration: none; /* no underline */
+                display: inline-block;
+            }
+            a:visited{
+                color: rgb(207, 153, 252);
+                text-decoration: none; /* no underline */
+                display: inline-block;
+            }
+
+            .bg-light{
+                text-align: center;
+            }
+        </style>
+        
+        
+            <a href="http://127.0.0.1:8000">Início</a>
+            <a href="{% url 'pessoa.index' %}">Cadastros</a>
+            <a href="{% url 'doacoes.index' %}">Doações</a>
+        </div>
+    {% endblock %}
+
+
+    <div class="container">
+    {% block conteudo %}
+    
+        <h3>Seja Bem Vindo</h3>
+        
+        <p>Clique em um dos links acima para iniciar a utilização do sistema</p>
+    
+    {% endblock %}
+    </div>
+
+    {% block rodape %}
+    <div class="rodape">
+        <style>
+            .rodape{
+                background-color: blueviolet;
+                text-align:center;
+                position: fixed;
+                left: 0px;
+                height: 50px;
+                width: 1920px;
+                bottom: 0;
+            }         
+        </style>
+    </div>
+    {% endblock %}
+
+
+
+
+    <script src="{% static 'js/jquery-3.6.1.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

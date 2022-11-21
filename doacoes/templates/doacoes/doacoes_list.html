@@ -1,0 +1,197 @@
+{% extends 'main/base.html' %}
+{% block conteudo %}
+    <h3>Doações</h3>
+    
+    <style>
+        .container{
+            margin-left: 0;
+            padding-bottom: 70px;
+            
+        }
+        tr{
+            padding-left: 50px;
+            padding-right: 50px;
+            text-align: center;
+            border: 2px solid;
+            height: 100%;
+            width: 100px;
+        }
+        th{
+            padding-left: 50px;
+            padding-right: 50px;
+            text-align: center;
+            border: 2px solid;
+            height: 100%;
+            width: 200px;
+        }
+        td{
+            border: 2px solid;
+            width: 100px;
+        }
+        table{
+            table-layout: fixed;
+        }
+        
+    
+    </style>
+    
+    <a href="{% url 'doacoes.novo' %}">Novo</a>
+    
+    <table> 
+        
+        <thead>
+            {% for doacoes in object_list %}
+            <tr>
+                <th >Nome</th>
+                <td style="width:70%">{{ doacoes.nome_doacao }}</td>
+            </tr><tr>
+                <th>Endereço</th> 
+                <td>{{ doacoes.endereco }}</td>
+            </tr><tr>
+                <th>RG ou CPF</th>
+                <td>{{ doacoes.rg_ou_cpf }}</td>
+            </tr><tr>
+                <th>Telefone</th>
+                <td>{{ doacoes.telefone }}</td>
+            </tr><tr> 
+                <th>Roupas</th>
+                <td>
+                {% if doacoes.roupas %}
+                Sim
+                {% else %}
+                Não
+                {% endif %}
+                </td>  
+            </tr><tr>
+                <th>Calçados</th>
+                <td>{% if doacoes.calcados %}
+                    Sim
+                    {% else %}
+                    Não
+                    {% endif %}</td>
+                </tr><tr>
+                <th>Alimentos</th>
+                <td>{% if doacoes.alimentos %}
+                    Sim
+                    {% else %}
+                    Não
+                    {% endif %}</td> 
+                </tr><tr>
+                <th>Material Escolar</th> 
+                <td>{% if doacoes.material_escolar %}
+                    Sim
+                    {% else %}
+                    Não
+                    {% endif %}</td>
+            </tr><tr> 
+                <th>Bebê Feminino</th>
+                <td>{% if doacoes.bebe_mulher %}
+                    Sim
+                    {% else %}
+                    Não
+                    {% endif %}</td>
+                </tr><tr> 
+                <th>Bebê Masculino</th>
+            
+                <td>{% if doacoes.bebe_homem %}
+            </tr><tr>
+                    Sim
+                    {% else %}
+                    Não
+                    {% endif %}</td> 
+                </tr><tr>
+                <th>Idade do Bebê</th>
+                <td>{{ doacoes.idade_bebe }}</td> 
+            </tr><tr>
+                <th>Numero de peças</th>
+                <td>{{ doacoes.numero_bebe }}</td> 
+            </tr><tr>
+                <th>Numero do Calçado</th>
+                <td>{{ doacoes.numero_calc_bebe }}</td>
+            </tr><tr>  
+                <th>Observações</th>
+                <td>{{ doacoes.obs_bebe }}</td>
+            </tr><tr>  
+                <th>Infantil Feminino</th>
+                <td>{% if doacoes.infant_mulher %}
+                    Sim
+                    {% else %}
+                    Não
+                    {% endif %}</td> 
+            </tr><tr>
+                <th>Quantidade de Crianças</th>
+                <td>{{ doacoes.quantidade_infant_mulher }}</td> 
+            </tr><tr>
+                <th>Idades</th>
+                <td>{{ doacoes.idades_mulher }}</td>
+            </tr><tr> 
+                <th>Numero de peças</th>
+                <td>{{ doacoes.numero_mulher }}</td> 
+            </tr><tr>
+                <th>Numero do(s) calçado(s)</th>
+                <td>{{ doacoes.calc_numero_mulher }}</td>
+            </tr><tr>  
+                <th>Infantil Masculino</th> 
+                <td>{% if doacoes.infantil_homem %}
+                    Sim
+                    {% else %}
+                    Não
+                    {% endif %}</td>
+            </tr><tr>
+                <th>Quantidade de Crianças</th>
+                <td>{{ doacoes.quantidade_infant_homem }}</td> 
+            </tr><tr>
+                <th>Idades</th>
+                <td>{{ doacoes.idades_homem }}</td>
+            </tr><tr> 
+                <th>Numero de peças</th>
+                <td>{{ doacoes.numero_homem }}</td> 
+            </tr><tr>
+                <th>Numero do(s) calçado(s)</th>
+                <td>{{ doacoes.calc_numero_homem }}</td>
+            </tr><tr> 
+                <th>Observações</th>
+                <td>{{ doacoes.obs }}</td>
+            </tr><tr>
+                <th>Entregas Realizadas</th>
+                <td>{{ doacoes.entregas_realizadas }}</td>
+                    
+            </tr>
+            {% endfor %}
+
+            <tbody>
+                {% for doacoes in object_list %}
+            <tr>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </tr>
+            <td>
+            <a href="{%url 'doacoes.editar' doacoes.pk %}">Editar</a>
+            <a href="{%url 'doacoes.remover' doacoes.pk %}">Remover</a>
+                {% endfor %}   
+            </tbody>
+        </thead>
+    </table>
+{% endblock %}
